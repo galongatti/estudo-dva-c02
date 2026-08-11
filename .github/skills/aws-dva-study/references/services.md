@@ -205,3 +205,29 @@ hooks:
 **Configuração via `.ebextensions/`:** arquivos YAML/JSON para customizar instâncias, instalar pacotes, configurar variáveis.
 
 **Worker tier:** processa tarefas de uma fila SQS (ideal para processamento assíncrono/background jobs).
+
+---
+
+## Serviços em escopo frequentemente negligenciados
+
+### Integração e orquestração
+- **AppSync:** GraphQL gerenciado com integração a Lambda, DynamoDB e autorização via IAM/Cognito.
+- **Step Functions:** orquestração de fluxos com retries, catches e estados de compensação.
+
+### Deploy e gestão de configuração
+- **AppConfig:** separação de configuração por ambiente, validação de configuração e rollout controlado.
+- **ECR:** armazenamento de imagens para workloads em ECS/EKS/Lambda com imagem de contêiner.
+- **CodeArtifact:** repositório gerenciado de dependências para builds reprodutíveis.
+
+### Rede e entrega
+- **CloudFront:** cache de conteúdo e redução de latência para APIs e assets estáticos.
+- **Route 53:** roteamento DNS, health checks e failover básico.
+- **ELB (ALB/NLB):** distribuição de tráfego e integração com aplicações containerizadas.
+
+### Segurança e proteção de borda
+- **WAF:** proteção de aplicações web com regras gerenciadas e customizadas.
+
+### Armazenamento e analytics
+- **EBS/EFS:** persistência para workloads em EC2/ECS, com diferenças de performance e compartilhamento.
+- **Athena:** consultas SQL em dados no S3 para análise operacional e troubleshooting.
+- **Kinesis/OpenSearch:** ingestão e análise de dados em tempo quase real.

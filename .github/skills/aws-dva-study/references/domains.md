@@ -16,6 +16,12 @@
 - Retry strategies e exponential backoff
 - Event-driven architecture patterns
 
+### Pontos que não podem faltar no domínio
+- Amazon Q Developer aplicado ao fluxo de desenvolvimento
+- EventBridge para padrões orientados a eventos
+- Resiliência em integrações com terceiros (retry, circuit breaker, tratamento de erro)
+- Kinesis/OpenSearch como armazenamentos especializados baseados em padrão de acesso
+
 ---
 
 ## Domínio 2: Segurança (26%)
@@ -34,6 +40,12 @@
 - Autenticação vs Autorização
 - Tokens JWT: estrutura e validação
 - Encryption at rest vs encryption in transit
+
+### Pontos que não podem faltar no domínio
+- Acesso federado com Cognito/IAM e credenciais temporárias via STS
+- Assumir roles entre serviços e contas
+- Gestão de dados sensíveis em código (segredos, mascaramento e limpeza)
+- Criptografia em trânsito e em repouso com KMS e rotação de chaves
 
 ---
 
@@ -55,6 +67,12 @@
 - Infrastructure as Code princípios
 - CI/CD pipeline design
 
+### Pontos que não podem faltar no domínio
+- AppConfig para configuração por ambiente
+- Estratégias de deploy com rollback e aliases/versions no Lambda
+- IaC com SAM/CloudFormation e atualização segura (change sets/drift)
+- Testes automatizados de deploy e geração de testes com Amazon Q Developer
+
 ---
 
 ## Domínio 4: Solução de Problemas e Otimização (18%)
@@ -72,3 +90,9 @@
 - Lambda concurrency limits e throttling
 - Estratégias de cache (TTL, invalidação)
 - Performance optimization patterns (connection pooling fora do handler, lazy initialization)
+
+### Pontos que não podem faltar no domínio
+- Diferença entre logging, monitoramento e observabilidade
+- Métricas customizadas (incluindo Embedded Metric Format)
+- Rastreamento distribuído com X-Ray (segments/subsegments/annotations)
+- Troubleshooting de falhas de deploy e integrações por análise de logs/métricas/traces

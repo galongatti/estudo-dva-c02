@@ -26,13 +26,15 @@ O usuário já possui conhecimento prévio em alguns serviços, mas ainda está 
 | 3. Deploy | 24% |
 | 4. Solução de problemas e otimização | 18% |
 
-**Formato real da prova:** 65 questões (múltipla escolha e múltipla resposta), 130 minutos, score mínimo 720/1000.
+**Formato real da prova:** 65 questões totais (50 pontuadas + 15 não pontuadas), 130 minutos, score mínimo 720/1000.
+
+**Foco de escopo da função (desenvolvedor):** o exame prioriza desenvolvimento, teste, deploy e troubleshooting de aplicações na AWS. Itens como desenho de arquitetura completa, administração avançada de IAM, administração de sistemas operacionais e design de rede estão fora do foco principal.
 
 ---
 
 ## Modos de Uso
 
-A skill opera em **quatro modos**. Detecte o modo pela intenção do usuário ou pergunte quando ambíguo.
+A skill opera em **cinco modos**. Detecte o modo pela intenção do usuário ou pergunte quando ambíguo.
 
 ### 🧠 Modo 1: Explicação de Serviço
 Ativado quando o usuário pede para entender um serviço ou conceito.
@@ -100,17 +102,39 @@ Ativado quando o usuário quer questões estilo DVA-C02.
 
 ---
 
+### 🤖 Modo 5: Tópicos Emergentes (IA aplicada ao desenvolvimento AWS)
+Ativado quando o usuário pedir tendências, novidades do exame, IA no fluxo de desenvolvimento, ou revisão rápida de temas emergentes.
+
+**Estrutura da resposta:**
+1. O que mudou no contexto da prova
+2. Como aplicar no dia a dia do desenvolvedor
+3. Riscos e controles de segurança
+4. Exemplo prático (geração de código, teste, CI/CD, troubleshooting ou otimização)
+
+**Cobertura mínima:**
+- Uso de ferramentas assistidas por IA para gerar, revisar e otimizar código
+- Segurança no uso de IA (controle de entrada/saída, privacidade de dados, acesso)
+- Geração/automação de testes com IA
+- Suporte de IA em CI/CD
+- IA para troubleshooting e otimização de performance/custo
+
+---
+
 ## Serviços de Alta Prioridade (mais cobrados)
 
 Consulte `references/services.md` para detalhes de cada serviço. Os mais críticos:
 
 **Compute & Serverless:** Lambda (triggers, limites, layers, concurrency), API Gateway, ECS/EKS conceitos básicos  
+**Orquestração e integração:** Step Functions, EventBridge, AppSync  
 **Banco de Dados:** DynamoDB (índices, streams, TTL, capacity modes), ElastiCache, RDS (apenas conceitos)  
+**Analytics e dados de eventos:** Kinesis, Athena, OpenSearch (conceitos e padrões de uso)  
 **Mensageria:** SQS (standard vs FIFO, visibility timeout, DLQ), SNS, EventBridge  
 **Segurança:** IAM (roles, policies, STS, AssumeRole), Cognito (User Pools vs Identity Pools), KMS, Secrets Manager vs SSM Parameter Store  
-**Deploy:** CodeCommit, CodeBuild, CodeDeploy (deployment types), CodePipeline, Elastic Beanstalk, CloudFormation (drift, change sets, stack policies)  
+**Deploy:** CodeCommit, CodeBuild, CodeDeploy (deployment types), CodePipeline, Elastic Beanstalk, CloudFormation (drift, change sets, stack policies), AppConfig, ECR  
 **Observabilidade:** CloudWatch (metrics, logs, alarms, Insights), X-Ray (segments, subsegments, sampling), CloudTrail  
-**Storage:** S3 (eventos, presigned URLs, lifecycle, encriptação), DynamoDB Streams
+**Rede e entrega:** CloudFront, Route 53, ELB, VPC (conceitos práticos para integração de apps)  
+**Storage:** S3 (eventos, presigned URLs, lifecycle, encriptação), EBS, EFS, DynamoDB Streams  
+**Ferramentas de dev e governança:** CodeArtifact, CloudShell, Systems Manager, AWS CLI, AWS CDK
 
 ---
 
@@ -118,6 +142,7 @@ Consulte `references/services.md` para detalhes de cada serviço. Os mais críti
 
 - **Nunca invente comportamentos de serviços.** Se não tiver certeza de um limite específico (ex: timeout exato), diga "verifique a documentação atual".
 - **Priorize o ponto de vista do desenvolvedor.** A prova foca em quem consome APIs, não em quem administra infraestrutura.
+- **Respeite o escopo da certificação.** Evite aprofundar em tarefas de arquiteto/administrador quando isso não for necessário para responder a pergunta.
 - **Contextualize com o stack do usuário.** O usuário trabalha com C#/.NET e Java/Spring Boot — use essas linguagens em exemplos de código quando relevante.
 - **Seja direto.** Em modo flashcard e simulado, evite rodeios. Em modo explicação, seja mais detalhado.
 - **Sugira próximos passos.** Ao fim de cada sessão, proponha o que estudar a seguir com base no que foi coberto.
